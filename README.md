@@ -5,8 +5,4 @@
 - Install dependencies: `npm install` or `yarn install`
 - Start the server: `npm run start` or `yarn start`
 
-for more information.
 
-## Contact us
-
-Email Us: support@minimals.cc
