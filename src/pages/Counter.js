@@ -15,6 +15,9 @@ import {LoadingButton} from "@material-ui/lab";
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../store/feature/counterSlice'
 import {getUsers,getUsersBYId} from "../store/asyncAction/userAction";
+import { useContext } from "react";
+import GlobalContext from "../context/GlobalContext";
+
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({theme}) => ({
@@ -46,6 +49,11 @@ const ContentStyle = styled('div')(({theme}) => ({
 // ----------------------------------------------------------------------
 
 export default function Counter() {
+    const gContext = useContext(GlobalContext);
+    console.log(gContext)
+    const inc=()=>{
+        gContext.increament()
+    }
     const count = useSelector((state) => state.counter)
     console.log(count);
     const dispatch = useDispatch()
@@ -55,6 +63,10 @@ export default function Counter() {
 
             <Container maxWidth="sm">
                 <ContentStyle>
+                   Context Api  State{gContext.value}
+                    <h1>Home</h1>
+                    <button onClick={inc}>+</button>
+
                     <TextField
                         fullWidth
                     />
